@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Collection</title>
+    <link rel="stylesheet" href="/css/collectionViewStyles.css">
+</head>
+<body>
+    <h1>Books in Collection</h1>
+    <ul>
+        <% books.forEach(book => { %>
+            <li>
+                <strong>Title:</strong> <%= book.title %><br>
+                <strong>Author:</strong> <%= book.author %><br>
+                <strong>Pages:</strong> <%= book.pages %><br>
+                <!-- Form to delete the book -->
+                <form action="/collection/<%= book.id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete from Collection</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/collection/home">Back to Collection Home</a>
+</body>
+</html>

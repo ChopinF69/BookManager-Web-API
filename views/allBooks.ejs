@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="/css/allBookStyles.css">
+</head>
+<body>
+    <h1>Book List</h1>
+    <form action="/books" method="POST">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages" required>
+        <input type="submit" value="Add Book">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(function(book) { %>
+                <tr>
+                    <td><%= book.id %></td>
+                    <td><%= book.title %></td>
+                    <td><%= book.author %></td>
+                    <td><%= book.pages %></td>
+                    <td>
+                        <a href="/books/<%= book.id %>">View</a>
+                        <a href="/books/<%= book.id %>/edit">Modify</a>
+                        <form action="/books/<%= book.id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

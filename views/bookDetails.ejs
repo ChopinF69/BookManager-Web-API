@@ -1,0 +1,21 @@
+<!-- views/bookDetails.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/css/bookDetailsStyles.css">
+</head>
+<body>
+    <h1>Book Details</h1>
+    <div class="book-details">
+        <h2><%= book.title %></h2>
+        <p><strong>ID:</strong> <%= book.id %></p>
+        <p><strong>Author:</strong> <%= book.author %></p>
+        <p><strong>Pages:</strong> <%= book.pages %></p>
+    </div>
+    <a href="/books">Back to Book List</a>
+</body>
+</html>

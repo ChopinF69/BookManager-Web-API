@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Book in Collection</title>
+    <link rel="stylesheet" href="/css/checkBookStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Check Book in Collection</h1>
+        <% if (bookInCollection) { %>
+            <p class="result success">The book with ID <strong><%= bookId %></strong> is in the collection.</p>
+        <% } else { %>
+            <p class="result error">The book with ID <strong><%= bookId %></strong> is not in the collection.</p>
+        <% } %>
+        <a class="back-link" href="/collection/home">Back to Collection Home</a>
+    </div>
+</body>
+</html>

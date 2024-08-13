@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Home</title>
+    <link rel="stylesheet" href="/css/collectionHomeStyles.css">
+</head>
+<body>
+    <h1>Book Collection</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(book => { %>
+                <tr>
+                    <td><%= book.id %></td>
+                    <td><%= book.title %></td>
+                    <td><%= book.author %></td>
+                    <td><%= book.pages %></td>
+                    <td>
+                        <form action="/collection" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                            <input type="hidden" name="title" value="<%= book.title %>">
+                            <input type="hidden" name="author" value="<%= book.author %>">
+                            <input type="hidden" name="pages" value="<%= book.pages %>">
+                            <button type="submit">Add to Collection</button>
+                        </form>
+                        <form action="/collection/<%= book.id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit">Remove from Collection</button>
+                        </form>
+                        <form action="/collection/check/<%= book.id %>" method="GET" style="display:inline;">
+                            <button type="submit">Check if in Collection</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/books">Back to Book List</a>
+    <a href="/collection/view" class="view-collection-button">View Collection</a> <!-- New Button -->
+</body>
+</html>

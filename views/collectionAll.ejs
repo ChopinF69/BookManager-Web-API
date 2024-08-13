@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collection</title>
+</head>
+<body>
+  <h1>Collection</h1>
+
+  <h2>All Books</h2>
+  <ul>
+    <% books.forEach(book => { %>
+      <li>
+        <strong>Title:</strong> <%= book.getTitle() %> <br>
+        <strong>Author:</strong> <%= book.getAuthor() %> <br>
+        <strong>Pages:</strong> <%= book.getPages() %> <br>
+        <form action="/collection" method="POST">
+          <input type="hidden" name="bookId" value="<%= book.getId() %>">
+          <button type="submit">Add to Collection</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+
+  <h2>Collection Books</h2>
+  <ul>
+    <% collectionBooks.forEach(book => { %>
+      <li>
+        <strong>Title:</strong> <%= book.getTitle() %> <br>
+        <strong>Author:</strong> <%= book.getAuthor() %> <br>
+        <strong>Pages:</strong> <%= book.getPages() %> <br>
+        <form action="/collection/<%= book.getId() %>?_method=DELETE" method="POST">
+          <button type="submit">Remove from Collection</button>
+        </form>
+        <form action="/collection/<%= book.getId() %>/edit" method="GET">
+          <button type="submit">Edit</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
+

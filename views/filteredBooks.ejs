@@ -1,0 +1,24 @@
+<!-- views/filteredBooks.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtered Books</title>
+  <link rel="stylesheet" href="/css/filteredBooksStyles.css">
+</head>
+<body>
+  <h1>Filtered Books</h1>
+  <ul>
+    <% books.forEach(book => { %>
+      <li>
+        <strong>Title:</strong> <%= book.title %><br>
+        <strong>Author:</strong> <%= book.author %><br>
+        <strong>Pages:</strong> <%= book.pages %>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
+

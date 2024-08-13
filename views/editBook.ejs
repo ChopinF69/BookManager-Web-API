@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/css/editBookStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Book</h1>
+        <!-- The form sends a POST request, but the method is overridden to PUT by method-override -->
+        <form action="/books/<%= book.id %>?_method=PUT" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= book.title %>" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="<%= book.author %>" required>
+
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" name="pages" value="<%= book.pages %>" required>
+
+            <input type="submit" value="Update Book">
+        </form>
+        <!-- Back link to the book list -->
+        <a class="back-link" href="/books">Back to Book List</a>
+    </div>
+</body>
+</html>
