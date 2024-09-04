@@ -38,3 +38,5 @@ All the CRUD operations are implemented !
 - ![Books to choose to add the collection](./public/assets/collectionHome.jpeg)
 - ![Simple check if the book is in the collection (each book is unique in collection)](./public/assets/collectionCheckId.jpeg)
 - ![View the collection](./public/assets/collectionView.jpeg)
+- ![Filter](./public/assets/filter.png)
+- ![Sort](./public/assets/sort.png)
